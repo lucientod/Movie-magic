@@ -12,5 +12,4 @@ configExpress(app)
 
 app.use(routes)
 
-
 app.listen(port, () => console.log(`The server is listening on port ${port}...`))
