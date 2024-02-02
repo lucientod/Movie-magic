@@ -1,0 +1,27 @@
+{
+  "name": "movie-magic",
+  "version": "1.0.0",
+  "description": "JS Back-end workshop",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucientod/Movie-magic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucientod/Movie-magic/issues"
+  },
+  "homepage": "https://github.com/lucientod/Movie-magic#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2"
+  }
+}
