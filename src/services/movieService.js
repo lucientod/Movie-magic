@@ -12,6 +12,7 @@ let movies = [{
 exports.create = (movieData) => {
     movieData._id = movies.length + 1
     movies.push(movieData)
+
 }
 
 exports.getAll = () => {
@@ -19,6 +20,6 @@ exports.getAll = () => {
 }
 
 exports.getOne = (movieID) => {
-    const movie = movies.filter((movie) => movies._id === movieID)
+    const movie = movies.filter((m) => m._id === movieID)
     return movie
 }
