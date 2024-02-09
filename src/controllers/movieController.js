@@ -5,10 +5,16 @@ router.get('/create', (req, res) => {
     res.render('create')
 })
 
-router.post('/create', (req, res) => {
+router.post('/create', async (req, res) => {
     const newMovie = req.body
-    movieService.create(newMovie)
-    res.redirect('/')
+    try {
+      await  movieService.create(newMovie)        
+      res.redirect('/')
+    } catch (error) {
+        console.log(error.message);
+        res.redirect('/create')
+        window.alert('Wrong inputs')
+    }
 })
 
 router.get('/details/:movieID', (req, res) => {

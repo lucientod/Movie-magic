@@ -29,7 +29,7 @@ const movieSchema = new mongoose.Schema({
     imageUrl:{
         type: String,
         required: true,
-        match: /^https?\/\//
+        match: /^https?:\/\//
     },
     casts: [{
         type: mongoose.Types.ObjectId,
@@ -38,4 +38,4 @@ const movieSchema = new mongoose.Schema({
 })
 
 const Movie = mongoose.model('Movie', movieSchema)
-module.exports = Movie
+module.exports = Movie;
