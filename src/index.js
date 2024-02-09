@@ -13,10 +13,10 @@ configExpress(app)
 
 app.use(routes)
 
-mongoose.connect(`mongodb://localhost:27017/magic-movies`)
+mongoose.connect(`mongodb://127.0.0.1:27017/magic-movies`)
     .then(() => {
         console.log('DB connected');
 
         app.listen(port, () => console.log(`The server is listening on port ${port}...`))
     })
-    .catch(err => console.log('Cannoct connect to DB'))
+    .catch(err => console.log('Cannot connect to db'))
