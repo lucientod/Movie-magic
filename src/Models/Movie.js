@@ -31,6 +31,10 @@ const movieSchema = new mongoose.Schema({
         required: true,
         match: /^https?:\/\//
     },
+    description:{
+        type: String,
+        required: true
+    },
     casts: [{
         type: mongoose.Types.ObjectId,
         ref: 'Cast'
