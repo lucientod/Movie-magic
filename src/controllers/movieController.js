@@ -17,13 +17,13 @@ router.post('/create', async (req, res) => {
     }
 })
 
-router.get('/details/:movieID', (req, res) => {
+router.get('/details/:movieID', async (req, res) => {
     const movieID = req.params.movieID
-    const movie = movieService.getOne(movieID)
+    const movie = await movieService.getOne(movieID).lean()
     // movie.rating = new Array(Number(movie.rating)).fill(true); ??????????????
-    if (typeof movie.rating !== 'number')
-        movie.rating = Number(movie.rating)
-    movie.ratingArr = new Array(movie.rating).fill(true)
+    // if (typeof movie.rating !== 'number')
+    //     movie.rating = Number(movie.rating)
+    // movie.ratingArr = new Array(movie.rating).fill(true)
     res.render('details', { movie })
 })
 module.exports = router
