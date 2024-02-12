@@ -40,12 +40,16 @@ exports.getOne = (movieID) => {
 
 exports.attach = async (movieId, castId) => {
     // return Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
-    const movie = await this.getOne(movieId);
 
-    // This is optional and we don't need it in this case
-    // const cast = await Cast.findById(castId);
-    // cast.movies.push(movie);
-    // await cast.save();
+    console.log('Moview service');
+    const movie = await this.getOne(movieId);
+    const cast = await Cast.findById(castId);
+    console.log('movie', movie);
+
+   // This is optional and we don't need it in this case
+    console.log('cast', cast);
+   // cast.movies.push(movie);
+    //await cast.save();
 
     // TODO: validate castId if exists
     // TODO: validate if cast is already added
