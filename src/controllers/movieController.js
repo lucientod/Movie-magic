@@ -35,7 +35,7 @@ router.get('/details/:movieId/attach', async (req, res) => {
     res.render('details/attach', { ...movie, casts })
 })
 
-router.post('details/:movieId/attach', async (req, res) => {
+router.post('/details/:movieId/attach', async (req, res) => {
     const castId = req.body.cast;
     console.log(castId);
     const movieId = req.params.movieId
