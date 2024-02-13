@@ -27,21 +27,9 @@ exports.search = (title, genre, year) => {
     return Movie.find(query)
 }
 
-exports.create = (movieData) => { Movie.create(movieData) }
-
-exports.getAll = () => {
-    return Movie.find()
-}
-
-exports.getOne = (movieID) => {
-    const movie = Movie.findById(movieID).populate('casts')
-    return movie
-}
-
 exports.attach = async (movieId, castId) => {
     // return Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
 
-    console.log('Moview service');
     const movie = await this.getOne(movieId);
     const cast = await Cast.findById(castId);
     console.log('movie', movie);
@@ -59,3 +47,16 @@ exports.attach = async (movieId, castId) => {
 
     return movie;
 }
+
+exports.create = (movieData) => { Movie.create(movieData) }
+
+exports.getAll = () => {    return Movie.find()}
+
+exports.getOne = (movieID) => {
+    const movie = Movie.findById(movieID).populate('casts')
+    return movie
+}
+
+exports.edit = (movieId, movieData)=> Movie.findByIdAndUpdate(movieId, movieData)
+
+exports.delete = (movieId)=>Movie.findByIdAndDelete(movieId)
