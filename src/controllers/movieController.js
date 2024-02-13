@@ -26,7 +26,7 @@ router.get('/details/:movieID', async (req, res) => {
     if (typeof movie.rating !== 'number')
         movie.rating = Number(movie.rating)
     movie.rating = new Array(movie.rating).fill(true)
-    res.render('details', { movie })
+    res.render('details/details', { movie })
 })
 
 router.get('/details/:movieId/attach', async (req, res) => {
@@ -41,6 +41,16 @@ router.post('/details/:movieId/attach', async (req, res) => {
     const movieId = req.params.movieId
     await movieService.attach(movieId, castId)
     res.redirect(`/details/${movieId}/attach`)
+})
+
+router.get('/details/:movieId/edit', async (req, res) => {
+    const movie = await movieService.getOne(req.params.movieId).lean()
+    res.render('details/edit', { movie })
+})
+
+router.post('/details/:movieId/edit', (req, res) => {
+console.log(req.locals);
+
 })
 
 module.exports = router

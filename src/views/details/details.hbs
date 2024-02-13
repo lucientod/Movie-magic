@@ -20,6 +20,13 @@
 
                 <p class="disc">Description: {{movie.description}}</p>
             </div>
+
+            {{!-- {{#if isOwner}} --}}
+            <div class="details-btn">
+                <a href="/details/{{movie._id}}/edit" id="edit-button">Edit</a>
+                <a href="/details/{{movie._id}}/delete" id="delete-button">Delete</a>
+            </div>
+            {{!-- {{/if}} --}}
         </div>
         <div class="card_right">
             <img src="{{movie.imageUrl}}" alt="image">
@@ -41,7 +48,11 @@
             </div>
         </div>
         {{else}}
-        <h2>No casts yet</h2>
+        <div class="main-cast-card">
+            <div class="no-cast">
+                <p>There are no casts added yet...</p>
+            </div>
+        </div>
         {{/each}}
     </div>
 </section>
