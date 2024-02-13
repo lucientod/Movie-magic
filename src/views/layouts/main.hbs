@@ -13,14 +13,26 @@
     <div id="box">
 
         <nav>
-            <img src="/img/logo.webp" alt="logo">
+            <img src="/img/logo.webp"  alt="logo">
+            {{!-- TODO: show the userName --}}
+            {{!-- {{#if user}}
+            <h1>{{user}}</h1>
+            {{else}}
+            <h1>Guest</h1>
+            {{/if}} --}}
 
             <ul class="menu">
                 <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/search">Search</a></li>
+
                 <li><a href="/create">Create Post</a></li>
                 <li><a href="/cast/create">Create Cast</a></li>
-                <li><a href="/search">Search</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/register">Register</a></li>
+
             </ul>
 
         </nav>
