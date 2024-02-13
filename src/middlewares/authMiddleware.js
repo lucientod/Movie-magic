@@ -13,6 +13,7 @@ exports.auth = async (req, res, next) => {
 
         req.user = decodedToken;
         res.locals.isAuthenticated = true;
+        res.locals.user = req.user.email
 
         next();
     } catch {
