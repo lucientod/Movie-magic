@@ -24,10 +24,12 @@ router.get('/details/:movieID', async (req, res) => {
     const movieID = req.params.movieID
     const movie = await movieService.getOne(movieID).lean()
     // movie.rating = new Array(Number(movie.rating)).fill(true); ??????????????
+    const isOwner = movie.owner == req.user?._id
+
     if (typeof movie.rating !== 'number')
         movie.rating = Number(movie.rating)
     movie.rating = new Array(movie.rating).fill(true)
-    res.render('details/details', { movie })
+    res.render('details/details', { movie, isOwner })
 })
 
 router.get('/details/:movieId/attach', isAuth, async (req, res) => {
@@ -53,6 +55,11 @@ router.post('/details/:movieId/edit', isAuth, async (req, res) => {
     const editedMovie = req.body
     await movieService.edit(req.params.movieId, editedMovie)
     res.redirect(`/details/${req.params.movieId}`)
+})
+
+router.get('/details/:movieId/delete', isAuth, async(req,res)=>{
+    await movieService.delete(req.params.movieId)
+    res.redirect('/')
 })
 
 module.exports = router

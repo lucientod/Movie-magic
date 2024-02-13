@@ -21,12 +21,12 @@
                 <p class="disc">Description: {{movie.description}}</p>
             </div>
 
-            {{!-- {{#if isOwner}} --}}
+            {{#if isOwner}}
             <div class="details-btn">
                 <a href="/details/{{movie._id}}/edit" id="edit-button">Edit</a>
                 <a href="/details/{{movie._id}}/delete" id="delete-button">Delete</a>
             </div>
-            {{!-- {{/if}} --}}
+            {{/if}}
         </div>
         <div class="card_right">
             <img src="{{movie.imageUrl}}" alt="image">
